@@ -5,6 +5,9 @@
  */
 package modelos;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author jhona
@@ -30,4 +33,27 @@ public class Modelo_Pais extends Conexion {
         }
     }
 
+    public Object[][] obtenerPaises() throws SQLException{
+        try {
+            
+        } catch (Exception e) {
+        }
+        ResultSet rescont = consultar("SELECT COUNT(*) AS registros FROM pais");
+        rescont.next();
+        int total = rescont.getInt("registros");
+        System.out.println(total);
+        rescont.close();
+        Object[][] paises = new String[total][3];
+        int i = 0;
+        ResultSet res = null;
+        res = consultar("SELECT * FROM pais");
+        while (res.next()) {
+            paises[i][0] = res.getString("id_pais");
+            paises[i][1] = res.getString("nombre");
+            paises[i][2] = res.getString("moneda");
+            i++;
+        }
+        res.close();
+        return paises;
+    }
 }

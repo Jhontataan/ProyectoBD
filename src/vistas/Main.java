@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import java.sql.SQLException;
 import modelos.Conexion;
 import modelos.Modelo_Pais;
 
@@ -14,9 +15,11 @@ import modelos.Modelo_Pais;
  */
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws SQLException {
         Modelo_Pais pais = new Modelo_Pais();
-        pais.nuevoPais("Mexico", "Peso");
-
+        Object consulta[][]  = pais.obtenerPaises();
+        for (int i = 0; i < consulta.length; i++) {
+            System.out.println("Id: " + consulta[i][0] + " Nombre: " + consulta[i][1] + " Moneda: " + consulta[i][2]);
+        }
     }
 }
