@@ -34,14 +34,9 @@ public class Modelo_Pais extends Conexion {
     }
 
     public Object[][] obtenerPaises() throws SQLException{
-        try {
-            
-        } catch (Exception e) {
-        }
         ResultSet rescont = consultar("SELECT COUNT(*) AS registros FROM pais");
         rescont.next();
         int total = rescont.getInt("registros");
-        System.out.println(total);
         rescont.close();
         Object[][] paises = new String[total][3];
         int i = 0;
