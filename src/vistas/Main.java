@@ -19,7 +19,6 @@ public class Main {
     public static void main(String args[]) throws SQLException {
         Modelo_Pais pais = new Modelo_Pais();
         Modelo_nivelacademico nivel = new Modelo_nivelacademico();
-        
         //Ejemplo de dar de alta un pais
         //pais.nuevoPais("España","Peseta");
         //Ejemplo de dar de alta un nivel
